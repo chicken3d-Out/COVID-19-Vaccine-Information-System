@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "covid19-vaccince-information-system": {
+    "copy": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/covid19-vaccince-information-system",
+            "outputPath": "dist/copy",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "covid19-vaccince-information-system:build:production"
+              "browserTarget": "copy:build:production"
             },
             "development": {
-              "browserTarget": "covid19-vaccince-information-system:build:development"
+              "browserTarget": "copy:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "covid19-vaccince-information-system:build"
+            "browserTarget": "copy:build"
           }
         },
         "test": {
@@ -102,5 +102,5 @@
       }
     }
   },
-  "defaultProject": "covid19-vaccince-information-system"
+  "defaultProject": "copy"
 }
