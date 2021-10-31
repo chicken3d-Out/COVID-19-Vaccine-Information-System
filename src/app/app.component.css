@@ -58,33 +58,44 @@
       height: 100%;
       font-size: 1.2rem;
       color:#000;
-      padding: 0 65px;
 
       display: flex;
       align-items: center;
-      gap:12px;
+      gap:18px;
+  }
+  .sidenav .side-content .content a mat-icon {
+    color:#475C7A;
+
+  }
+  .sidenav .side-content .content {
+    padding: 0 55px;
+
   }
   .sidenav .side-content .content:hover {
       background-color: #C5C6D0;
       cursor: pointer;  
-      padding: 0 15px;
+      padding: 0 68px;
       transition: all 0.5s ease-in-out;
   }
 
   /*Tool Bar*/
   .toolbar {
     transition-delay: 0.5s;
-    background-color: rgb(161, 161, 161);
+    /*background-color: rgb(161, 161, 161);*/
+    background-color: #475C7A;;
 
     display: flex;
     gap: 25px;
+  }
+  .toolbar span {
+    color: white;
   }
   .toolbar .ham {
       cursor: pointer;
   }
   button {
     border: none;
-    background-color: rgb(161, 161, 161);
+    background-color: #475C7A;
   }
   /* Content Container */
   .contents {
