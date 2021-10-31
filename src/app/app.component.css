@@ -4,12 +4,12 @@
     width:100%;
     height: 100vh;
     transition: all 0.5s ease;
+    overflow-x: hidden;
 
     /*background-image: url('./assets/img/bg.svg');*/
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
     
 }
   .sidenav-content {
@@ -26,7 +26,7 @@
     box-sizing: unset;
   }
   .sidenav .side-content {
-      width: 100%;
+      width: 250px;
 
       display: grid;
       grid-template-rows: 100px 75px 75px 75px;
