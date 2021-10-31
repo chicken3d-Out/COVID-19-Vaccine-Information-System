@@ -6,10 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatIconModule} from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatCardModule} from '@angular/material/card';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatOptionModule } from '@angular/material/core';
+import { MatOptionSelectionChange } from '@angular/material/core';
 
 
 
@@ -17,6 +22,8 @@ import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
+    WelcomeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +34,12 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatOptionModule,
     RouterModule.forRoot([
+      { path: '', component: WelcomeComponent },
+      { path: 'dashboard', component: DashboardComponent }
     ])
     
   ],
