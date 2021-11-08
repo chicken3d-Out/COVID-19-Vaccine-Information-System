@@ -5,43 +5,41 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AdminLoginComponent } from './pages/admin-login/admin-login.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatOptionModule } from '@angular/material/core';
-import { MatOptionSelectionChange } from '@angular/material/core';
-
-
-
+import { MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NoopAnimationsModule,
+    MatFormFieldModule,
     MatSidenavModule,
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
-    MatFormFieldModule,
-    MatOptionModule,
-    MatOptionModule,
+    MatButtonModule,
     RouterModule.forRoot([
       { path: '', component: WelcomeComponent },
-      { path: 'dashboard', component: DashboardComponent }
-    ])
-    
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'admin-login', component: AdminLoginComponent }
+    ]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
