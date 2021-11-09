@@ -11,7 +11,6 @@ export class AdminLoginComponent implements OnInit {
   onSubmit(){
     
   }
-  hide = true;
 
   ngOnInit(): void {
   }

@@ -1,8 +1,12 @@
 /*Side Nav*/
+a {
+  text-decoration: none;
+}
 .main-container {
     border: 1px solid rgba(0, 0, 0, 0.5);
     width:100%;
     height: 100vh;
+    /*transition: all 0.5s ease;*/
     overflow-x: hidden;
 
     /*background-image: url('./assets/img/bg.svg');*/
@@ -19,6 +23,7 @@
   
   .sidenav {
     position: fixed;
+    /*transition: all 0.5s ease;*/
     background-color: #eee;
     width: 250px;
     box-sizing: unset;

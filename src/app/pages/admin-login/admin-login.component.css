@@ -121,13 +121,10 @@
     justify-content: center;
 
     font-size: 2rem;
-    gap:10px;
+    gap:5px;
 }
 .main-container .main .banner-container .banner-right .form-group .field input {
     width: 75%;
-}
-.main-container .main .banner-container .banner-right .form-group .field .icon {
-    font-size: 2.8rem;
 }
 .main-container .main .banner-container .banner-right .form-group .alert{
     margin: unset;
@@ -135,6 +132,7 @@
     width: 75%;
     padding: unset;
     padding: 10px 15px;
+    
 }
 .ng-valid.required, .ng-valid[required]{
     border-left: 5px solid #42A948; /* green */
@@ -142,4 +140,12 @@
 .ng-invalid.required, .ng-invalid[required]{
     border-left: 5px solid #a94442; /* red */
 }
-
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+}
