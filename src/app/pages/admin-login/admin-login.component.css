@@ -63,7 +63,7 @@
     gap:25px;
 
     width: 400px;
-    height: 400px;    
+    height: 430px;    
 }
 .main-container .main .banner-container .banner-left span {
     color: rgb(17, 148, 17);
@@ -74,21 +74,27 @@
 }
 .main-container .main .banner-container .banner-right {
     width: 400px;
-    height: 400px;
+    height: 430px;
     background-color: rgb(197, 226, 225);
 
     display: grid;
     grid-auto-flow: row;
-    grid-template-rows: 60px 1fr 90px;
+    grid-template-rows: 70px auto auto auto;
+}
+.main-container .main .banner-container .banner-right .alert {
+    padding:unset;
+    margin:unset;
+    padding: 5px 10px;
+    height: 40px;
 }
 .main-container .main .banner-container .banner-right .con1 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 .main-container .main .banner-container .banner-right .con1 button{
     width: 35%;
+    margin: 4% 0;
 }
 .main-container .main .banner-container .banner-right .con2 {
     display: flex;
@@ -104,48 +110,34 @@
 /* Forms*/
 .main-container .main .banner-container .banner-right .form .con {
     display: grid;
-    grid-template-rows: 109px 109px;
+    grid-template-rows: 1fr 1fr;
 }
 .main-container .main .banner-container .banner-right .form-group{
     margin: unset;
-    padding: 15px 0;
 
 }
 .main-container .main .banner-container .banner-right .form-group label {
     font-weight: unset;
     font-size: 1.8rem;
+    color:#374d4d;
 }
 .main-container .main .banner-container .banner-right .form-group .field {
     display: flex;
     align-items: center;
-    justify-content: center;
 
-    font-size: 2rem;
+    width: 100%;
+    padding-left: 17%;
+    font-size: 1.7rem;
     gap:5px;
 }
 .main-container .main .banner-container .banner-right .form-group .field input {
-    width: 75%;
+    width: 100%;
 }
 .main-container .main .banner-container .banner-right .form-group .alert{
     margin: unset;
-    margin-left: 60px;
-    width: 75%;
+    width: 55%;
     padding: unset;
-    padding: 10px 15px;
+    padding: 5px 10px;
+    margin-left: 25%;
     
-}
-.ng-valid.required, .ng-valid[required]{
-    border-left: 5px solid #42A948; /* green */
-}
-.ng-invalid.required, .ng-invalid[required]{
-    border-left: 5px solid #a94442; /* red */
-}
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
 }

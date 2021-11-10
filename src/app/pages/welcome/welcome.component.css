@@ -63,7 +63,7 @@
     gap:25px;
   
     width: 400px;
-    height: 400px;    
+    height: 430px;    
   }
   .main-container .main .banner-container .banner-left span {
     color: rgb(17, 148, 17);
@@ -74,7 +74,7 @@
   }
   .main-container .main .banner-container .banner-right {
     width: 400px;
-    height: 400px;
+    height: 430px;
     background-color: rgb(197, 226, 225);
   
     display: grid;
