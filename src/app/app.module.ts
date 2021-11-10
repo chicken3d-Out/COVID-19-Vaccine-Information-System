@@ -54,7 +54,15 @@ import { VaccineAdministratorComponent } from './admin/vaccine-administrator/vac
     RouterModule.forRoot([
       {path: 'welcome', component: WelcomeComponent},//change the path later to ''
       {path: 'admin-login', component: AdminLoginComponent},
-      {path: '', component: DashboardComponent/*, canActivate: [AuthGuard]*/}//path here os 'dashboard'
+      {path: '', component: DashboardComponent, children: [
+          { path: 'overview', component: OverviewComponent },
+          { path: 'recipient', component: VaccineRecipientComponent },
+          { path: 'first-dose', component: FirstdoseComponent },
+          { path: 'second-dose', component: SeconddoseComponent },
+          { path: 'vaccine', component: VaccineComponent },
+          { path: 'vaccine-administrator', component: VaccineAdministratorComponent }
+      ]/*, 
+    canActivate: [AuthGuard]*/}//path here os 'dashboard'
     ])
   ],
   providers: [],
