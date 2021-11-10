@@ -12,9 +12,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AuthGuard } from './auth.guard';
+import { OverviewComponent } from './admin/overview/overview.component';
+import { VaccineRecipientComponent } from './admin/vaccine-recipient/vaccine-recipient.component';
+import { FirstdoseComponent } from './admin/firstdose/firstdose.component';
+import { SeconddoseComponent } from './admin/seconddose/seconddose.component';
+import { VaccineComponent } from './admin/vaccine/vaccine.component';
+import { VaccineAdministratorComponent } from './admin/vaccine-administrator/vaccine-administrator.component';
 
 
 
@@ -23,7 +31,13 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     AppComponent,
     WelcomeComponent,
     AdminLoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    OverviewComponent,
+    VaccineRecipientComponent,
+    FirstdoseComponent,
+    SeconddoseComponent,
+    VaccineComponent,
+    VaccineAdministratorComponent
   ],
   imports: [
     BrowserModule,
@@ -32,14 +46,15 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     MatInputModule,
     FormsModule,
     MatIconModule,
+    MatMenuModule,
     MatToolbarModule,
     MatCardModule,
     MatSidenavModule,
     MatButtonModule,
     RouterModule.forRoot([
-      {path: '', component: WelcomeComponent},
+      {path: 'welcome', component: WelcomeComponent},//change the path later to ''
       {path: 'admin-login', component: AdminLoginComponent},
-      {path: 'dashboard', component: DashboardComponent}
+      {path: '', component: DashboardComponent/*, canActivate: [AuthGuard]*/}//path here os 'dashboard'
     ])
   ],
   providers: [],

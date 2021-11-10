@@ -4,36 +4,63 @@
             <div class="contentHeader">
                 <div class="bar"></div>
                 <div class="header">
-                    <div><i class="fas fa-syringe"></i></div>
+                    <div><mat-icon>health_and_safety</mat-icon></div>
                     <div><b>Rural Health Unit</b></div>
                 </div>
                 
             </div>
             <div class="content">
-                <a routerLink="/home">
-                    <div><mat-icon>home</mat-icon></div>
-                    <div>Home</div>
+                <a routerLink="/overview">
+                    <div><mat-icon>analytics</mat-icon></div>
+                    <div>Overview</div>
                 </a> 
             </div>
             <div class="content">
-                <a routerLink="/contacts">
-                    <div><mat-icon> call</mat-icon></div>
-                    <div>Contacts</div>
+                <a routerLink="/recipient">
+                    <div><mat-icon>face</mat-icon></div>
+                    <div>Vaccine Recipient</div>
                 </a>
             </div>
             <div class="content">
-                <a routerLink="/gallery">
-                    <div><mat-icon>perm_media</mat-icon></div>
-                    <div>Gallery</div>
+                <a routerLink="/first-dose">
+                    <div><mat-icon>healing</mat-icon></div>
+                    <div>First Dose</div>
+                </a>
+            </div>
+            <div class="content">
+                <a routerLink="/second-dose">
+                    <div><mat-icon>spa</mat-icon></div>
+                    <div>Second Dose</div>
+                </a>
+            </div>
+            <div class="content">
+                <a routerLink="/vaccine">
+                    <div><mat-icon>vaccines</mat-icon></div>
+                    <div>Vaccine</div>
+                </a>
+            </div>
+            <div class="content">
+                <a routerLink="/vaccine-administrator">
+                    <div><mat-icon>local_hospital</mat-icon></div>
+                    <div>Vaccine Administrator</div>
                 </a>
             </div>
         </div>
     </mat-drawer>
     <mat-toolbar class="toolbar">
-        <button type="button" mat-button (click)="drawer.toggle()">
-            <mat-icon class="ham">view_headline</mat-icon>
-        </button>
-        <span>COVID-19-Vaccine Information System</span>
+        <div>
+            <button type="button" mat-button (click)="drawer.toggle()">
+                <mat-icon class="ham">view_headline</mat-icon>
+            </button>
+            <span>COVID-19-Vaccine Information System</span>
+        </div>
+        <div class="logout-section">
+            <button mat-button [matMenuTriggerFor]="beforeMenu"><mat-icon>admin_panel_settings</mat-icon></button>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+            <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon>Log-Out</button>
+            </mat-menu>
+        </div>
+        
     </mat-toolbar>
     <div class="contents">
         

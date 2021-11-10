@@ -57,7 +57,7 @@ export class RestApiService {
       return this.admin;
   }
   //set anything to false when admin logs out
-  private logout(){
+  public logout(){
     this.isAuthenticated = false;
     this.admin = false;
     this.router.navigate(['']);

@@ -16,6 +16,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    font-size: 1.7rem;
   }
   .main-container .toolbar .contact-info {
     padding: 0 35px;
@@ -23,11 +24,13 @@
     display: flex;
     justify-content: flex-end;
     gap: 30px;
+    font-size: 1.7rem;
   }
   .main-container .toolbar .contact-info .op1,
   .main-container .toolbar .contact-info .op2 {
     display: flex;
     align-items: center;
+    font-size: 1.7rem;
     gap: 5px;
   }
   .main-container .toolbar .contact-info .op1:hover,

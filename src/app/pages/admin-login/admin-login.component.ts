@@ -9,7 +9,7 @@ import { SigninData } from 'src/app/signin';
 })
 export class AdminLoginComponent implements OnInit {
   //initialization
-  credentials!:boolean;
+  credentials= false;
   hide = true;
 
   constructor(private restapiService: RestApiService, private router: Router) { }
@@ -18,7 +18,7 @@ export class AdminLoginComponent implements OnInit {
     //store value in a container
     const username = data.value.username;
     const password = data.value.password;
-     this.credentials = this.restapiService.authenticate({"username":username,"password":password}as SigninData)
+     this.credentials = this.restapiService.authenticate({"username":username,"password":password}as SigninData);
   }
   ngOnInit(): void {
     

@@ -1,8 +1,8 @@
 <?php
-    include_once("../product/database.php");
+    include_once("../database.php");
 
     try {
-        $stmt = $con->prepare("SELECT * FROM user");
+        $stmt = $con->prepare("SELECT * FROM adminuser");
         $stmt->execute();
 
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
