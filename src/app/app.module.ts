@@ -52,17 +52,17 @@ import { VaccineAdministratorComponent } from './admin/vaccine-administrator/vac
     MatSidenavModule,
     MatButtonModule,
     RouterModule.forRoot([
-      {path: 'welcome', component: WelcomeComponent},//change the path later to ''
+      {path: '', component: WelcomeComponent},//change the path later to ''
       {path: 'admin-login', component: AdminLoginComponent},
-      {path: '', component: DashboardComponent, children: [
+      {path: 'dashboard', component: DashboardComponent, children: [
           { path: 'overview', component: OverviewComponent },
           { path: 'recipient', component: VaccineRecipientComponent },
           { path: 'first-dose', component: FirstdoseComponent },
           { path: 'second-dose', component: SeconddoseComponent },
           { path: 'vaccine', component: VaccineComponent },
           { path: 'vaccine-administrator', component: VaccineAdministratorComponent }
-      ]/*, 
-    canActivate: [AuthGuard]*/}//path here os 'dashboard'
+      ], 
+    canActivate: [AuthGuard]}//path here os 'dashboard'
     ])
   ],
   providers: [],
