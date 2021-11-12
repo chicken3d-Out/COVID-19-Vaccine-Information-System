@@ -17,6 +17,7 @@ export class RestApiService {
   getAllAdmin():Observable<SigninData[]>{
     return this.http.get<SigninData[]>(`${this.urlAdmin}login.php`);
   }
+
   authenticate(signdata: SigninData):boolean{
     if(this.checkCredentials(signdata.username, signdata.password) || this.admin==true){
       //for error not to show up
