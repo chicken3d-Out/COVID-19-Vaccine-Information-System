@@ -81,14 +81,14 @@ import { EditVaccineAdminComponent } from './admin/vaccine-administrator/edit-va
     RouterModule.forRoot([
       {path: '', component: WelcomeComponent},//change the path later to ''
       {path: 'admin-login', component: AdminLoginComponent},
-      {path: '', component: DashboardComponent, children: [
+      {path: 'dashboard', component: DashboardComponent, children: [
           { path: 'dashboard/overview', component: OverviewComponent },
           { path: 'dashboard/recipient', component: VaccineRecipientComponent },
           { path: 'dashboard/first-dose', component: FirstdoseComponent },
           { path: 'dashboard/second-dose', component: SeconddoseComponent },
           { path: 'dashboard/vaccine', component: VaccineComponent },
           { path: 'dashboard/vaccine-administrator', component: VaccineAdministratorComponent },
-          { path: 'dashboard', redirectTo: 'dashboard/overview', pathMatch: 'full' },
+          { path: '', redirectTo: 'dashboard/overview', pathMatch: 'full' },
 
           //Vaccine Recipient Paths
           { path: 'dashboard/recipient/add-vaccine-recipient', component: AddVaccineRecipientComponent },
