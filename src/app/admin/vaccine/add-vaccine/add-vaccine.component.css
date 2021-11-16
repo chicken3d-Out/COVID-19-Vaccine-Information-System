@@ -45,7 +45,7 @@
 .main .content-container .form-container {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(2,1fr);
 }
 .main .content-container .form-container .form-grid{
     display: grid;

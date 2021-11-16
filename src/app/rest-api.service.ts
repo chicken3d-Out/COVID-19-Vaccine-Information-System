@@ -13,13 +13,16 @@ export class RestApiService {
   urlAdmin = "/api/admin/";
   isAuthenticated = false;
   admin = false;
+  //Get Admin Name
+  adminName!:string;
+
   //Get all the admin from the database
   getAllAdmin():Observable<SigninData[]>{
     return this.http.get<SigninData[]>(`${this.urlAdmin}login.php`);
   }
 
   authenticate(signdata: SigninData):boolean{
-    if(this.checkCredentials(signdata.username, signdata.password) || this.admin==true){
+    if(this.checkCredentials(signdata.username, signdata.password) || this.admin == true){
       //for error not to show up
       return false;
     }
@@ -30,6 +33,8 @@ export class RestApiService {
 
       this.getAllAdmin().subscribe(result => {
         const admin = result.find((auth:any) => {
+          //Get admin name
+          this.adminName = `${auth.firstname} ${auth.lastname}`;
            return auth.username === username && auth.password === password
        });
        if(admin){

@@ -23,13 +23,13 @@
             </a>
             <a class="content" routerLink="/dashboard/first-dose" routerLinkActive="active-section">
                 <div class="icon-section">
-                    <div><mat-icon>healing</mat-icon></div>
+                    <div><mat-icon>looks_one</mat-icon></div>
                     <div>First Dose</div>
                 </div>
             </a>
             <a class="content" routerLink="/dashboard/second-dose" routerLinkActive="active-section">
                 <div class="icon-section">
-                    <div><mat-icon>spa</mat-icon></div>
+                    <div><mat-icon>looks_two</mat-icon></div>
                     <div>Second Dose</div>
                 </div>
             </a>
@@ -45,6 +45,13 @@
                     <div>Vaccine Administrator</div>
                 </div>
             </a>
+            <a class="content" routerLink="" routerLinkActive="active-section">
+                <div class="icon-section">
+                    <div><mat-icon>send</mat-icon></div>
+                    <div>Reservation</div>
+                </div>
+                <!--Add Route to fix error-->
+            </a>
         </div>
     </mat-drawer>
     <mat-toolbar class="toolbar">
@@ -55,6 +62,9 @@
             <span>COVID-19-Vaccine Information System</span>
         </div>
         <div class="logout-section">
+            <div class="admin-name">
+                <p>{{adminName}}Data Mining Activity and Cisco</p>
+            </div>
             <button mat-button [matMenuTriggerFor]="beforeMenu"><mat-icon>admin_panel_settings</mat-icon></button>
             <mat-menu #beforeMenu="matMenu" xPosition="before">
             <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon>Log-Out</button>

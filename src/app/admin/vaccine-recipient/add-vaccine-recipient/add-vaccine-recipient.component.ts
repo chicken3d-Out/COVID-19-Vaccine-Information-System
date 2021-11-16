@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/covid19Interface';
+import { Category, Recipient} from 'src/app/covid19Interface';
+import { VaccineRecipientService } from '../vaccine-recipient.service';
+import { Gender } from 'src/app/covid19Interface';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-vaccine-recipient',
@@ -8,11 +12,18 @@ import { Category } from 'src/app/covid19Interface';
 })
 export class AddVaccineRecipientComponent implements OnInit {
   
-  constructor() { }
+  constructor( private vaccinerecipientService: VaccineRecipientService, private router: Router) { }
   panelOpenState = false;
   //selectedCatgory
   selected: any;
-  //Category
+  selectedGender:any;
+
+  //Email Error Notification
+  duplicateEmail = false;
+
+  //placeholder for CustomID
+  customID:any;
+
   category: Category[] = [
     {category: 'A'},
     {category: 'B'},
@@ -21,33 +32,65 @@ export class AddVaccineRecipientComponent implements OnInit {
     {category: 'E'}
   ];
 
-  onSubmit(data:any ,cat:any){
+  gender :Gender[] = [
+    {gender: 'M'},
+    {gender: 'F'}
+  ]
+
+//Create new record of vaccine recipient
+  onSubmit(data:any){
 
     const firstname = data.value.firstname;
     const middlename = data.value.middlename;
     const lastname = data.value.lastname;
-    const category = cat;
+    const category = this.selected;
 
     const mobileNum = data.value.number;
     const email = data.value.email;
     const address = data.value.address;
     const birthday = data.value.birthday;
+    const gender = this.selectedGender;
 
-    const jsonData = {
-      "fname": firstname,
-      "mname": middlename,
-      "lname:": lastname,
-      "category": category,
-      "mobile": mobileNum,
-      "email": email,
-      "address": address,
-      "bday": birthday
+    const newRecipientData = {
+      id: null,
+      firstname: firstname,
+      middlename: middlename,
+      lastname: lastname,
+      category: category,
+      contactnum: mobileNum,
+      email: email,
+      address: address,
+      birthday: birthday,
+      gender: gender
     };
+    //Check Duplicate Email
+    this.vaccinerecipientService.getAllRecipient().subscribe( results => {
+      const checkEmail = results.find((auth: any) => {
+        return auth.email === email;
+      })
+      if (checkEmail){
+        this.duplicateEmail = true;
+      }
+      else {
+        this.duplicateEmail = false;
 
-    console.log(jsonData);
-
+        //Create a new record
+        this.vaccinerecipientService.createNewRecipient(newRecipientData as Recipient).subscribe( data => {    
+            Swal.fire({
+              title: 'Record Successfully Created!',
+              text: 'Go Back to Dashboard?',
+              icon: 'success',
+              confirmButtonColor: '#3085d6',
+              confirmButtonText: 'Dashboard'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.router.navigate(['dashboard/recipient']); 
+              }
+            })
+        })
+      }
+    })
   }
-
   ngOnInit(): void {
 
   }

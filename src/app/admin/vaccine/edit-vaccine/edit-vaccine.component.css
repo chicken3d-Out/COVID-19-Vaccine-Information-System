@@ -57,8 +57,11 @@
     grid-auto-flow: column;
     grid-template-columns: repeat(5, 1fr);
 }
-button {
-    grid-column: 3/4;
+.button .save {
+    grid-column: 2/3;
+}
+.button .back {
+    grid-column: 4/5;
 }
 .main .content-container .form-container .form-field {
     display: flex;

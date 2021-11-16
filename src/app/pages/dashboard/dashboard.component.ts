@@ -8,6 +8,9 @@ import { RestApiService } from 'src/app/rest-api.service';
 export class DashboardComponent implements OnInit {
 
   constructor(private restapiService: RestApiService) { }
+  //Get admin Name
+  adminName = this.restapiService.adminName;
+  
   logout(){
     this.restapiService.logout();
   }

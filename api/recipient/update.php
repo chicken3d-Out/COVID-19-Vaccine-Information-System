@@ -22,6 +22,18 @@
         if($request['category'] === ''){
             return http_response_code(404);
         }
+        if($request['contactnum'] === ''){
+            return http_response_code(404);
+        }
+        if($request['email'] === ''){
+            return http_response_code(404);
+        }
+        if($request['address'] === ''){
+            return http_response_code(404);
+        }
+        if($request['birthday'] === ''){
+            return http_response_code(404);
+        }
 
         //trim data
         $id = trim($request['id']);
@@ -29,11 +41,16 @@
         $middlename = trim($request['middlename']);
         $lastname = trim($request['lastname']);
         $category = trim($request['category']);
+        $contactnum = trim($request['contactnum']);
+        $email = trim($request['email']);
+        $address = trim($request['address']);
+        $birthday = trim($request['birthday']);
 
         //Query Update
         $stmt = $con->prepare("UPDATE vaccinerecipient SET firstname = ?, middlename = ?, lastname =? ,
-                                    category = ? WHERE id=?");
-        $stmt->execute([$firstname,$middlename,$lastname,$category,$id]);
+                                    category = ?, contactnum = ?, email = ?, address = ?, birthday = ? 
+                                    WHERE id= ?");
+        $stmt->execute([$firstname,$middlename,$lastname,$category,$contactnum,$email,$address,$birthday,$id]);
         if($stmt){
             $response = [
                 'status' => 200,
