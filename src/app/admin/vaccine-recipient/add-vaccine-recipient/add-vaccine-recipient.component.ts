@@ -75,10 +75,11 @@ export class AddVaccineRecipientComponent implements OnInit {
         this.duplicateEmail = false;
 
         //Create a new record
-        this.vaccinerecipientService.createNewRecipient(newRecipientData as Recipient).subscribe( data => {    
+        this.vaccinerecipientService.createNewRecipient(newRecipientData as Recipient).subscribe( data => { 
+          const ID = data.customid;  
             Swal.fire({
-              title: 'Record Successfully Created!',
-              text: 'Go Back to Dashboard?',
+              title: `Success! Your ID: ${ID}`,
+              text: 'Go Back To Dashboard?',
               icon: 'success',
               confirmButtonColor: '#3085d6',
               confirmButtonText: 'Dashboard'
@@ -92,6 +93,7 @@ export class AddVaccineRecipientComponent implements OnInit {
     })
   }
   ngOnInit(): void {
+    
 
   }
 

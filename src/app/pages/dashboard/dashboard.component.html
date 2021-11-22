@@ -7,7 +7,6 @@
                     <div><mat-icon>health_and_safety</mat-icon></div>
                     <div><b>Rural Health Unit</b></div>
                 </div>
-                
             </div>
             <a class="content" routerLink="/dashboard/overview" routerLinkActive="active-section">
                 <div class="icon-section">
@@ -45,9 +44,9 @@
                     <div>Vaccine Administrator</div>
                 </div>
             </a>
-            <a class="content" routerLink="" routerLinkActive="active-section">
+            <a class="content" routerLink="/dashboard/reservation" routerLinkActive="active-section">
                 <div class="icon-section">
-                    <div><mat-icon>send</mat-icon></div>
+                    <div><mat-icon>fact_check</mat-icon></div>
                     <div>Reservation</div>
                 </div>
                 <!--Add Route to fix error-->
@@ -63,10 +62,11 @@
         </div>
         <div class="logout-section">
             <div class="admin-name">
-                <p>{{adminName}}Data Mining Activity and Cisco</p>
+                <p>{{adminName}}</p>
             </div>
             <button mat-button [matMenuTriggerFor]="beforeMenu"><mat-icon>admin_panel_settings</mat-icon></button>
             <mat-menu #beforeMenu="matMenu" xPosition="before">
+            <button mat-menu-item routerLink="/dashboard/add-admin"><mat-icon>person_add_alt_1</mat-icon>Add Admin</button>
             <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon>Log-Out</button>
             </mat-menu>
         </div>

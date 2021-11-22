@@ -16,7 +16,6 @@ export class VaccineComponent implements OnInit {
   //instantiate an object from interface vaccine
   vaccine:Vaccine[] = [];
 
-  /*firstName: any;*/
   //Pass data to data Source
   dataSource!: MatTableDataSource<any>;
   //Pagination

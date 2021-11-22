@@ -20,6 +20,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
@@ -37,8 +38,19 @@ import { EditVaccineComponent } from './admin/vaccine/edit-vaccine/edit-vaccine.
 import { AddVaccineComponent } from './admin/vaccine/add-vaccine/add-vaccine.component';
 import { AddVaccineAdminComponent } from './admin/vaccine-administrator/add-vaccine-admin/add-vaccine-admin.component';
 import { EditVaccineAdminComponent } from './admin/vaccine-administrator/edit-vaccine-admin/edit-vaccine-admin.component';
-
-
+import { ReservationComponent } from './admin/reservation/reservation.component';
+import { AddFirstdoseComponent } from './admin/firstdose/add-firstdose/add-firstdose.component';
+import { EditFirstdoseComponent } from './admin/firstdose/edit-firstdose/edit-firstdose.component';
+import { AddSeconddoseComponent } from './admin/seconddose/add-seconddose/add-seconddose.component';
+import { EditSeconddoseComponent } from './admin/seconddose/edit-seconddose/edit-seconddose.component';
+//View Components
+import { ViewDashboardComponent } from './view/view-dashboard/view-dashboard.component';
+import { OverviewViewComponent } from './view/overview-view/overview-view.component';
+import { FirstdoseViewComponent } from './view/firstdose-view/firstdose-view.component';
+import { SeconddoseViewComponent } from './view/seconddose-view/seconddose-view.component';
+import { ReservationViewComponent } from './view/reservation-view/reservation-view.component';
+import { AddAdminComponent } from './admin/add-admin/add-admin.component';
+import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +69,19 @@ import { EditVaccineAdminComponent } from './admin/vaccine-administrator/edit-va
     EditVaccineComponent,
     AddVaccineComponent,
     AddVaccineAdminComponent,
-    EditVaccineAdminComponent
+    EditVaccineAdminComponent,
+    ReservationComponent,
+    AddFirstdoseComponent,
+    EditFirstdoseComponent,
+    AddSeconddoseComponent,
+    EditSeconddoseComponent,
+    ViewDashboardComponent,
+    OverviewViewComponent,
+    FirstdoseViewComponent,
+    SeconddoseViewComponent,
+    ReservationViewComponent,
+    AddAdminComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +89,7 @@ import { EditVaccineAdminComponent } from './admin/vaccine-administrator/edit-va
     HttpClientModule,
     MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
     MatIconModule,
     MatMenuModule,
     MatToolbarModule,
@@ -81,26 +106,46 @@ import { EditVaccineAdminComponent } from './admin/vaccine-administrator/edit-va
     RouterModule.forRoot([
       {path: '', component: WelcomeComponent},//change the path later to ''
       {path: 'admin-login', component: AdminLoginComponent},
+      //View Paths
+      {path: 'dashboard-view', component: ViewDashboardComponent, children: [
+          { path: 'overview-view', component: OverviewViewComponent },
+          { path: 'first-dose-view', component: FirstdoseViewComponent },
+          { path: 'second-dose-view', component: SeconddoseViewComponent },
+          { path: 'reservation-view', component: ReservationViewComponent },
+          { path: '', redirectTo: 'overview-view', pathMatch: 'full' }
+      ], canActivate: [AuthGuard]},
       {path: 'dashboard', component: DashboardComponent, children: [
-          { path: 'dashboard/overview', component: OverviewComponent },
-          { path: 'dashboard/recipient', component: VaccineRecipientComponent },
-          { path: 'dashboard/first-dose', component: FirstdoseComponent },
-          { path: 'dashboard/second-dose', component: SeconddoseComponent },
-          { path: 'dashboard/vaccine', component: VaccineComponent },
-          { path: 'dashboard/vaccine-administrator', component: VaccineAdministratorComponent },
-          { path: '', redirectTo: 'dashboard/overview', pathMatch: 'full' },
+          { path: 'overview', component: OverviewComponent},
+          { path: 'recipient', component: VaccineRecipientComponent},
+          { path: 'first-dose', component: FirstdoseComponent},
+          { path: 'second-dose', component: SeconddoseComponent},
+          { path: 'vaccine', component: VaccineComponent},
+          { path: 'vaccine-administrator', component: VaccineAdministratorComponent},
+          { path: 'reservation', component: ReservationComponent},
+          { path: 'add-admin', component: AddAdminComponent},
+          { path: '', redirectTo: 'overview', pathMatch: 'full'},
 
           //Vaccine Recipient Paths
-          { path: 'dashboard/recipient/add-vaccine-recipient', component: AddVaccineRecipientComponent },
-          { path: 'dashboard/recipient/edit-vaccine-recipient/:id', component: EditVaccineRecipientComponent },
+          { path: 'recipient/add-vaccine-recipient', component: AddVaccineRecipientComponent},
+          { path: 'recipient/edit-vaccine-recipient/:id', component: EditVaccineRecipientComponent},
           //Vaccine Paths
-          { path: 'dashboard/vaccine/add-vaccine', component: AddVaccineComponent },
-          { path: 'dashboard/vaccine/edit-vaccine/:id', component: EditVaccineComponent },
+          { path: 'vaccine/add-vaccine', component: AddVaccineComponent},
+          { path: 'vaccine/edit-vaccine/:id', component: EditVaccineComponent},
           //Vacine Admin Paths
-          { path: 'dashboard/vaccine-administrator/add-vaccine-admin', component: AddVaccineAdminComponent },
-          { path: 'dashboard/vaccine-administrator/edit-vaccine-admin/:id', component: EditVaccineAdminComponent },
+          { path: 'vaccine-administrator/add-vaccine-admin', component: AddVaccineAdminComponent},
+          { path: 'vaccine-administrator/edit-vaccine-admin/:id', component: EditVaccineAdminComponent},
+          //FirstDose Paths
+          { path: 'first-dose/add-first-dose', component: AddFirstdoseComponent},
+          { path: 'first-dose/edit-first-dose/:id', component: EditFirstdoseComponent},
+          //SecondDose Paths
+          { path: 'second-dose/add-second-dose', component: AddSeconddoseComponent},
+          { path: 'second-dose/edit-second-dose/:id', component: EditSeconddoseComponent},
+
       ], 
-    canActivate: [AuthGuard]}//path here os 'dashboard'
+      canActivate: [AuthGuard]},
+      //Path if paths are invalid
+      { path: '**', redirectTo: 'Page404NotFound' },
+      { path: 'Page404NotFound', component: PagenotfoundComponent }
     ])
   ],
   providers: [],

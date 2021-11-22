@@ -9,7 +9,7 @@ import { SigninData } from 'src/app/signin';
 })
 export class AdminLoginComponent implements OnInit {
   //initialization
-  credentials= false;
+  credentials!:boolean;
   hide = true;
 
   constructor(private restapiService: RestApiService, private router: Router) { }

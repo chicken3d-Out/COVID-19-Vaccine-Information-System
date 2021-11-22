@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { SigninData } from './signin';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Reservation, Message } from './covid19Interface';
+import { AddAdmin } from './signin';
 
 @Injectable({
   providedIn: 'root'
@@ -68,4 +70,27 @@ export class RestApiService {
     this.admin = false;
     this.router.navigate(['']);
   }
+
+  //Reservation API CALLS
+  URLSendEmail = "/api/sendemail/";
+  URLReservation = "/api/reservation/";
+  getAllReservation():Observable<Reservation[]>{
+    return this.http.get<Reservation[]>(`${this.URLReservation}read.php`);
+  }
+
+  //Add Reservation From View
+  addReservation(reservation: Reservation): Observable<Reservation>{
+    return this.http.post<Reservation>(`${this.URLReservation}create.php`, reservation)
+  }
+
+  //Send Email 
+  sendEmail(emaildata: Reservation):Observable<Message>{
+    return this.http.post<Message>(`${this.URLSendEmail}rhuEmail.php`,emaildata);
+  }
+
+  //Add Admin
+  addAdmin(addAdmin: AddAdmin):Observable<AddAdmin>{
+    return this.http.post<AddAdmin>(`${this.urlAdmin}create.php`, addAdmin)
+  }
+
 }

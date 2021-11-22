@@ -93,7 +93,7 @@ a {
   /*Tool Bar*/
   .toolbar {
     transition-delay: 0.5s;
-    background-color: #475C7A;;
+    background-color: #475C7A;
 
     display: grid;
     grid-auto-flow: column;
