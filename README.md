@@ -1,5 +1,5 @@
 # Covid19 Vaccine Information System
-<b>This app is made using Angular Framwwork on Frontend, PHP in server-side and MySQL for database.<br>
+<b>This app is made using Angular Framework on Frontend, PHP in server-side and MySQL for database.<br>
 Features:</b><br>
 <ul>
   <li>There is two parts for this app the View where anyone can visit and an Admin Panel where only authorized user can access.</li>
