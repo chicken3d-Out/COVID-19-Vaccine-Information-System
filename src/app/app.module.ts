@@ -113,7 +113,7 @@ import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.compone
           { path: 'second-dose-view', component: SeconddoseViewComponent },
           { path: 'reservation-view', component: ReservationViewComponent },
           { path: '', redirectTo: 'overview-view', pathMatch: 'full' }
-      ], canActivate: [AuthGuard]},
+      ]},//Remove auth guard later
       {path: 'dashboard', component: DashboardComponent, children: [
           { path: 'overview', component: OverviewComponent},
           { path: 'recipient', component: VaccineRecipientComponent},
