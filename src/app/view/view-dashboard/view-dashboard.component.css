@@ -32,7 +32,7 @@ a {
         width: 250px;
   
         display: grid;
-        grid-template-rows: 100px repeat(4, 75px);
+        grid-template-rows: 100px repeat(5, 75px);
     }
     .sidenav .side-content .contentHeader{
       background-color: #685D79;

@@ -146,3 +146,39 @@ export interface Gender {
 export interface Age {
     age: any;
 }
+
+
+//Statistics Interface
+export interface philippineStatistics {
+    country: string,
+    countryInfo: any,
+    iso3: string,
+    flag: any,
+    cases: number,
+    todayCases: number,
+    deaths: number,
+    todayDeaths: number,
+    recovered: number,
+    todayRecovered: number,
+    active: number,
+    critical: number,
+    casesPerOneMillion: number,
+    deathsPerOneMillion: number,
+    tests: number,
+    testsPerOneMillion: number,
+    population: number,
+    continent: string,
+    oneCasePerPeople: number,
+    oneDeathPerPeople: number,
+    oneTestPerPeople: number,
+    activePerOneMillion: number,
+    recoveredPerOneMillion: number,
+    criticalPerOneMillion: number
+}
+
+//Vaccinated 
+export interface philippineVaccinated {
+    country : string,
+    timeline: any,
+    date: any
+}

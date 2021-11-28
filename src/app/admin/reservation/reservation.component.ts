@@ -77,13 +77,14 @@ export class ReservationComponent implements OnInit {
             this.emailVerify = true;
     
             this.getAllReservation();
+
           }else{
             this.emailVerify = false;
             this.emailFailed = true
           }   
         })
       }
-    }) 
+     }) 
   }
   ngOnInit(): void {
     this.getAllReservation();

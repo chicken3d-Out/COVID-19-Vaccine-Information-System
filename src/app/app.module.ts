@@ -51,6 +51,7 @@ import { SeconddoseViewComponent } from './view/seconddose-view/seconddose-view.
 import { ReservationViewComponent } from './view/reservation-view/reservation-view.component';
 import { AddAdminComponent } from './admin/add-admin/add-admin.component';
 import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
+import { StatisticsComponent } from './view/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.compone
     SeconddoseViewComponent,
     ReservationViewComponent,
     AddAdminComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
@@ -111,9 +113,10 @@ import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.compone
           { path: 'overview-view', component: OverviewViewComponent },
           { path: 'first-dose-view', component: FirstdoseViewComponent },
           { path: 'second-dose-view', component: SeconddoseViewComponent },
+          { path: 'statistics-view', component: StatisticsComponent },
           { path: 'reservation-view', component: ReservationViewComponent },
           { path: '', redirectTo: 'overview-view', pathMatch: 'full' }
-      ], canActivate: [AuthGuard]},//Remove auth guard later
+      ]/*, canActivate: [AuthGuard]*/},//Remove auth guard later
       {path: 'dashboard', component: DashboardComponent, children: [
           { path: 'overview', component: OverviewComponent},
           { path: 'recipient', component: VaccineRecipientComponent},

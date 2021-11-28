@@ -30,7 +30,9 @@ export class FirstdoseViewComponent implements OnInit {
   getAllFirstdose(): void{
     this.firstdoseService.getAllFirstdoseInfo().subscribe( 
       data => { 
-        this.firstdose = data;   
+        this.firstdose = data; 
+        console.log(this.firstdose)
+
         this.dataSource = new MatTableDataSource(data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
