@@ -116,7 +116,7 @@ import { StatisticsComponent } from './view/statistics/statistics.component';
           { path: 'statistics-view', component: StatisticsComponent },
           { path: 'reservation-view', component: ReservationViewComponent },
           { path: '', redirectTo: 'overview-view', pathMatch: 'full' }
-      ]/*, canActivate: [AuthGuard]*/},//Remove auth guard later
+      ], canActivate: [AuthGuard]},//Remove auth guard later
       {path: 'dashboard', component: DashboardComponent, children: [
           { path: 'overview', component: OverviewComponent},
           { path: 'recipient', component: VaccineRecipientComponent},
