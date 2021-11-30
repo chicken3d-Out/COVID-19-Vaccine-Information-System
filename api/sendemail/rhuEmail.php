@@ -2,6 +2,7 @@
     require_once '../database.php';
     require_once './src/PHPMailer.php';
     require_once './src/SMTP.php';
+    require_once './src/Exception.php';
     
     $postData = file_get_contents('php://input');
     
@@ -60,9 +61,9 @@
     //enable password
     $email->SMTPAuth = true;
     //set username
-    $email->Username = "purgy6";
+    $email->Username = "malbray";
     //set password
-    $email->Password = "damnpurgelol";
+    $email->Password = "event-driven";
     //for encryption of password
     $email->SMTPSecure = "tls";
     //SMPTP Port
@@ -72,7 +73,7 @@
     //Set Sender Name
     $email->FromName = "Rural Health Unit";
     //Set Where to send and set Reciever's name
-    $email->addAddress($mailTo, "Vincent Goles");
+    $email->addAddress($mailTo, "Vaccine Recipient");
     //enable HTML tag in the body
     $email->isHTML = true;
     //Set Email Subject
@@ -81,7 +82,11 @@
     $email->Body = $body;
     //Set default if html not loaded
     $email->AltBody = "Your reservation has been set!";
-
+    if($email->send()){
+        echo "Success!";
+    }else {
+        echo "Failed!";
+    }
     if(!$email->send()){
         $sendingStatus = [
             'message' => "Failed",
