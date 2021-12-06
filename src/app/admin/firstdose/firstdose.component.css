@@ -46,7 +46,8 @@ table {
 table th{
     /*background-color: #685D79;*/
     background-color: #685D79;
-    color:#000;
+    color:#fafafa;
+    box-shadow: 1px 1px 1px #000;
     /*text-align: center;*/
 
     font-weight: bold;

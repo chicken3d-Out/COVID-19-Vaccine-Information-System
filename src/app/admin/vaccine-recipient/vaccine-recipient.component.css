@@ -36,7 +36,8 @@ table {
 table th {
     /*background-color: #685D79;*/
     background-color: #685D79;
-    color:#000;
+    color:#fafafa;
+    text-shadow: 1px 1px 1px #000;
     align-items: center;
 
     font-weight: bold;
