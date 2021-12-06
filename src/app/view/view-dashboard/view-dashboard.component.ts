@@ -7,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-dashboard.component.css']
 })
 export class ViewDashboardComponent implements OnInit {
-
+  currentNav: String = 'Overview'
   constructor() { }
 
 
+  currentNavigation(nav: String){
+    this.currentNav = nav
+  }
   ngOnInit(): void {
   }
 
