@@ -10,9 +10,14 @@ export class DashboardComponent implements OnInit {
   constructor(private restapiService: RestApiService) { }
   //Get admin Name
   adminName = this.restapiService.adminName;
+  currentNav: String = 'Overview'
   
   logout(){
     this.restapiService.logout();
+  }
+
+  currentNavigation(nav: String){
+    this.currentNav = nav
   }
   
   ngOnInit(): void {
